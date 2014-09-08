@@ -13,7 +13,7 @@ require 'browser/interval'
 module Component
 	class Dashboard < Lissio::Component
 		def self.title
-			'Dolly'
+			'Daily Dolly'
 		end
 
 		def self.icon

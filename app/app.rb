@@ -230,7 +230,7 @@ class Application < Lissio::Application
 			end
 
 			_.div.header do
-				_.div.title 'Dashboard'
+				_.div.title Component::Dashboard.title
 
 				_.select do
 					_.option.value('/')         >> Component::Dashboard.title
