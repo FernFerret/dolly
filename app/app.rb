@@ -73,8 +73,11 @@ class Application < Lissio::Application
 	def start
 		super
 
-		every 60 do
-			verify
+		time = Time.new.getgm
+
+		after ((23 - time.hour) * 60 * 60) + ((59 - time.min) * 60) + (59 - time.sec) + 1 do
+			reset
+			refresh
 		end
 
 		reset
