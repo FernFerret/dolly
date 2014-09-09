@@ -77,7 +77,7 @@ class Application < Lissio::Application
 			verify
 		end
 
-		verify
+		reset
 
 		if Overwolf.available?
 			Overwolf::Game.on :change do |u|
@@ -99,9 +99,9 @@ class Application < Lissio::Application
 		end
 	end
 
-	def verify
-		now  = Time.new
-		hash = "#{`#{now}.getUTCFullYear()`}-#{`#{now}.getUTCMonth()`}-#{`#{now}.getUTCDate()`}"
+	def reset
+		time = Time.new.getgm
+		hash = "#{time.year}-#{time.mon}-#{time.day}"
 
 		if state[:last] != hash
 			state[:last] = hash

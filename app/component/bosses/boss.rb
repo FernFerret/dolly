@@ -20,10 +20,8 @@ module Component
 		end
 
 		def time
-			time = Time.new
-			now  = ::Boss::At.new(`#{time}.getUTCHours()`,
-			                      `#{time}.getUTCMinutes()`,
-			                      `#{time}.getUTCSeconds()`)
+			time = Time.new.getgm
+			now  = ::Boss::At.new(time.hour, time.min, time.sec)
 
 			times.reduce {|prev, curr|
 				if now.hours >= prev.hours && now.hours <= curr.hours
