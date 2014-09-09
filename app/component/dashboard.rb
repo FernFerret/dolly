@@ -22,9 +22,9 @@ module Component
 
 		on 'page:load' do
 			@interval = every 60 do
-				time    = Time.new
-				hours   = 23 - `#{time}.getUTCHours()`
-				minutes = 59 - `#{time}.getUTCMinutes()`
+				time    = Time.new.getgm
+				hours   = 23 - time.hour
+				minutes = 59 - time.min
 
 				element.at_css('.timer').inner_text = '%02d:%02d' % [hours, minutes]
 			end
