@@ -82,6 +82,17 @@ module Component
 
 			element.at_css('.earnings .gold div').inner_text   = gold
 			element.at_css('.earnings .silver div').inner_text = silver
+
+			@dungeons.each_with_index {|dungeon, index|
+				tokens = dungeon.tokens
+				el     = element.at_css(".dungeon:nth-child(#{index + 1}) .icon div")
+
+				if tokens == 0
+					el.inner_text = ''
+				else
+					el.inner_text = tokens
+				end
+			}
 		end
 
 		on :click, '.dungeon .icon' do |e|
@@ -97,6 +108,7 @@ module Component
 				_.div.dungeon do
 					_.div.icon.data(waypoint: dungeon.waypoint) do
 						_.img.src("img/dungeon/#{dungeon.name.downcase}.png")
+						_.div
 					end
 
 					dungeon.paths.each do |path, value|
@@ -131,6 +143,17 @@ module Component
 
 				rule '& > div' do
 					margin bottom: 5.px
+				end
+
+				rule '.icon' do
+					position :relative
+
+					rule 'div' do
+						position :absolute
+						top 0
+						right 0
+						font size: 10.px
+					end
 				end
 			end
 

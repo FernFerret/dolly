@@ -73,6 +73,18 @@ class Dungeon < Browser::Storage
 		total
 	end
 
+	def tokens
+		total = 0
+
+		each {|path, done|
+			if path != :story && done
+				total += 60
+			end
+		}
+
+		total
+	end
+
 	def done?(path)
 		self[path]
 	end
