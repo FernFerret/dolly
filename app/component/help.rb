@@ -85,20 +85,19 @@ module Component
 
 			Clicking on the world boss name will mark it as done.
 
-			The timer will be green and count hours and minutes remaining till the
-			event window is active, when one minute is left before the event window,
-			it will start blinking.
+			A green timer represents hours and minutes remaining before the
+			activation window begins, when one minute is left it will start blinking.
 
-			After the event window is open, the timer will count minutes and seconds
-			passed since the beginning, it will be orange while the event is supposed
-			to be in warmup, it will turn red when the event is active, and it will
-			start blinking when the event is supposedly over.
+			During the event window the timer represents minutes and seconds passed
+			since its beginning, it will be orange during warmup, red during its
+			duration, and it will start blinking when it ended.
 
 			*The warmup and duration times are approximations.*
 
 			Configuration
 			=============
-			There are various configuration options to adapt Daily Dolly to your liking.
+			There are various configuration options to adapt Daily Dolly to your
+			liking.
 
 			- `Interface Size` should be the same you configured Guild Wars 2 with.
 			- `In-Game Only` allows you to show the interface either only while in
