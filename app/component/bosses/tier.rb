@@ -31,6 +31,16 @@ module Component
 			Application.state.delete("bosses.#@type")
 		end
 
+		def type
+			case @type
+			when :low      then 'Low'
+			when :standard then 'Standard'
+			when :hardcore then 'Hardcore'
+			when :off      then 'Off-Schedule'
+			when :temple   then 'Temple'
+			end
+		end
+
 		on :click, '.type, .arrow' do |e|
 			if open?
 				close!
@@ -60,7 +70,7 @@ module Component
 		end
 
 		html do |_|
-			_.div.type @type.capitalize
+			_.div.type type
 			_.div.arrow do
 				_.i.fa.fa[:minus, :square]
 				_.i.fa.fa[:plus, :square]

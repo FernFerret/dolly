@@ -19,6 +19,10 @@ module Component
 			@boss.__send__(*args, &block)
 		end
 
+		def timer?
+			!times.empty?
+		end
+
 		def time
 			time = Time.new.getgm
 			now  = ::Boss::At.new(time.hour, time.min, time.sec)
@@ -182,12 +186,16 @@ module Component
 		end
 
 		on 'page:load' do
+			next unless timer?
+
 			@tick = every 1 do
 				tick
 			end
 		end
 
 		on 'page:unload' do
+			next unless timer?
+
 			@tick.abort
 		end
 
@@ -253,6 +261,10 @@ module Component
 			rule '.name' do
 				vertical align: :middle
 				line height: 16.px
+			end
+
+			rule '&.off .timer' do
+				display :none
 			end
 
 			rule '.timer' do

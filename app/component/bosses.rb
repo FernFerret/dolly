@@ -19,7 +19,11 @@ module Component
 		end
 
 		def initialize
-			@tiers = [Tier.new(:low), Tier.new(:standard), Tier.new(:hardcore)]
+			@tiers = [Tier.new(:low),
+			          Tier.new(:standard),
+			          Tier.new(:hardcore),
+			          Tier.new(:off),
+			          Tier.new(:temple)]
 		end
 
 		on 'page:load' do

@@ -313,4 +313,59 @@ class Boss < Browser::Storage
 		at '18:00'
 		at '23:00'
 	end
+
+	class EyeOfZhaitan < self
+		type     :off
+		waypoint '[&BPgCAAA=]'
+	end
+
+	class RisenHighWizard < self
+		type     :off
+		waypoint '[&BB8DAAA=]'
+	end
+
+	class RhendakTheCrazed < self
+		type     :off
+		waypoint '[&BNwAAAA=]'
+	end
+	
+	class FoulbearChieftain < self
+		type     :off
+		waypoint '[&BDwEAAA=]'
+	end
+
+	class DredgeCommissar < self
+		type     :off
+		waypoint '[&BD8FAAA=]'
+	end
+
+	class FireShaman < self
+		type     :off
+		waypoint '[&BO0BAAA=]'
+	end
+
+	class Balthazar < self
+		type     :temple
+		waypoint '[&BPoCAAA=]'
+	end
+
+	class Grenth < self
+		type     :temple
+		waypoint '[&BCIDAAA=]'
+	end
+	
+	class Lyssa < self
+		type     :temple
+		waypoint '[&BK0CAAA=]'
+	end
+
+	class Dwayna < self
+		type     :temple
+		waypoint '[&BLACAAA=]'
+	end
+
+	class Melandru < self
+		type     :temple
+		waypoint '[&BBsDAAA=]'
+	end
 end
