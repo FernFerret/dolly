@@ -18,7 +18,7 @@ module Component
 			'icon.png'
 		end
 
-		on :unload do
+		on 'page:unload' do
 			Application.size         = element.at_css('.size td:nth-child(2) select').value
 			Application.state[:show] = element.at_css('.show span').inner_text == 'No'
 		end

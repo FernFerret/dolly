@@ -123,8 +123,8 @@ module Component
 			html do |_|
 				_.div.title @title
 				_.div.arrow do
-					_.i.fa.fa[:minus, :square]
-					_.i.fa.fa[:plus, :square]
+					_.img.minus
+					_.img.plus
 				end
 
 				_.div.materials do
@@ -138,9 +138,7 @@ module Component
 				position :relative
 
 				rule '.materials' do
-					max height: 0.px
-					transition 'max-height', 1.s
-					overflow :hidden
+					display :none
 
 					rule '.material:last-child' do
 						padding bottom: 10.px
@@ -148,26 +146,37 @@ module Component
 				end
 
 				rule '&.open .materials' do
-					max height: 150.px
+					display :block
 				end
 
 				rule '.arrow' do
 					position :absolute
-					top 5.px
+					top 3.px
 					left -20.px
-					font size: 10.px
+
+					rule '.minus' do
+						content url('img/minus.png')
+						filter grayscale(100.%)
+						width 12.px
+					end
+	
+					rule '.plus' do
+						content url('img/plus.png')
+						filter grayscale(100.%)
+						width 12.px
+					end
 				end
 
-				rule '.arrow .fa-minus-square' do
+				rule '.arrow .minus' do
 					display :none
 				end
 
 				rule '&.open .arrow' do
-					rule '.fa-plus-square' do
+					rule '.plus' do
 						display :none
 					end
 
-					rule '.fa-minus-square' do
+					rule '.minus' do
 						display 'inline-block'
 					end
 				end

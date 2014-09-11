@@ -13,4 +13,6 @@ class Clipboard
 
 	alias_native :set
 	alias_native :get
+	alias_native :available
+	alias_native :clear
 end

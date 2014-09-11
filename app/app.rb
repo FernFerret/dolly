@@ -121,9 +121,9 @@ class Application < Lissio::Application
 		@current = component
 
 		if Component::Configuration === component || Component::Help === component
-			element.at_css('.menu').add_class :back
+			element.at_css('.menu').add_class :special
 		else
-			element.at_css('.menu').remove_class :back
+			element.at_css('.menu').remove_class :special
 		end
 
 		element.at_css('#container > .icon img')[:src] = 'img/' + component.class.icon
@@ -208,15 +208,15 @@ class Application < Lissio::Application
 		end
 	end
 
-	on :click, '.fa-gear' do
+	on :click, '.gear' do
 		Application.navigate '/config'
 	end
 
-	on :click, '.fa-question-circle' do
+	on :click, '.question' do
 		Application.navigate '/help'
 	end
 
-	on :click, '.fa-arrow-circle-left' do
+	on :click, '.back' do
 		Application.navigate :back
 	end
 
@@ -244,9 +244,9 @@ class Application < Lissio::Application
 				end
 
 				_.div.menu do
-					_.i.fa.fa[:arrow, :circle, :left]
-					_.i.fa.fa[:question, :circle]
-					_.i.fa.fa[:gear]
+					_.img.back
+					_.img.question
+					_.img.gear
 				end
 
 				_.div.style(clear: :both)
@@ -308,24 +308,64 @@ class Application < Lissio::Application
 
 				rule '.menu' do
 					vertical align: :middle
-					float :right
-					margin right: 10.px
 
-					rule 'i' do
+					position :absolute
+					top 6.px
+					right 5.px
+
+					rule 'img' do
 						cursor :pointer
-						padding left: 7.px
+						display 'inline-block'
+
+						rule '&.gear' do
+							content url('img/gear.png')
+							width 23.px
+							transform scale(0.9)
+
+							position :relative
+							top 3.px
+
+							rule '&:hover' do
+								content url('img/gear.active.png')
+							end
+						end
+
+						rule '&.question' do
+							content url('img/question.png')
+							transform scale(0.9)
+
+							position :relative
+							top 1.px
+							right 3.px
+
+							rule '&:hover' do
+								content url('img/question.active.png')
+							end
+						end
+
+						rule '&.back' do
+							content url('img/back.png')
+							transform rotate(180.deg)
+
+							position :relative
+							top 4.px
+
+							rule '&:hover' do
+								content url('img/back.active.png')
+							end
+						end
 					end
 
-					rule '.fa-arrow-circle-left' do
+					rule '.back' do
 						display :none
 					end
 
-					rule '&.back' do
-						rule '.fa-arrow-circle-left' do
+					rule '&.special' do
+						rule '.back' do
 							display 'inline-block'
 						end
 
-						rule '.fa-gear', '.fa-question-circle' do
+						rule '.gear', '.question' do
 							display :none
 						end
 					end
@@ -367,37 +407,49 @@ class Application < Lissio::Application
 
 		rule 'body.small' do
 			rule '.header' do
-				rule '.title' do
+				rule '.title', 'h1' do
 					font size: 17.px
 				end
 			end
 
 			rule '.content' do
 				font size: 15.px
+
+				rule 'h1' do
+					font size: 17.px
+				end
 			end
 		end
 
 		rule 'body.normal' do
 			rule '.header' do
-				rule '.title' do
+				rule '.title', 'h1' do
 					font size: 17.px
 				end
 			end
 
 			rule '.content' do
 				font size: 15.px
+
+				rule 'h1' do
+					font size: 17.px
+				end
 			end
 		end
 
 		rule 'body.large' do
 			rule '.header' do
-				rule '.title' do
+				rule '.title', 'h1' do
 					font size: 19.px
 				end
 			end
 
 			rule '.content' do
 				font size: 16.px
+
+				rule 'h1' do
+					font size: 19.px
+				end
 			end
 		end
 
@@ -410,6 +462,10 @@ class Application < Lissio::Application
 
 			rule '.content' do
 				font size: 17.px
+
+				rule 'h1' do
+					font size: 20.px
+				end
 			end
 		end
 	end

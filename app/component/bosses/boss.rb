@@ -204,16 +204,17 @@ module Component
 				element.add_class :done
 			end
 
-			timer(*time)
+			if timer?
+				timer(*time)
+			else
+				element.add_class :off unless timer?
+			end
 		end
 
 		tag class: :boss
 
 		html do |_|
-			_.div.waypoint.data(waypoint: waypoint) do
-				_.img.src('img/waypoint.png')
-				_.img.src('img/waypoint.active.png').active
-			end
+			_.img.waypoint.data(waypoint: waypoint)
 
 			_.span.timer do
 				_.span.hours
@@ -230,6 +231,7 @@ module Component
 			rule '.waypoint' do
 				position :relative
 				top -1.px
+				left 2.px
 
 				display 'inline-block'
 				vertical align: :middle
@@ -238,23 +240,10 @@ module Component
 
 				margin right: 8.px
 
-				rule 'img' do
-					width 100.%
-					height 100.%
-				end
-
-				rule 'img.active' do
-					display :none
-				end
+				content url('img/waypoint.png')
 
 				rule '&:hover' do
-					rule 'img' do
-						display :none
-					end
-
-					rule 'img.active' do
-						display :block
-					end
+					content url('img/waypoint.active.png')
 				end
 			end
 
