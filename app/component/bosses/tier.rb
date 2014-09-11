@@ -86,15 +86,15 @@ module Component
 		css do
 			position :relative
 
+			rule '&.off' do
+				margin top: 15.px
+			end
+
 			rule '.bosses' do
 				display :none
 
 				position :relative
 				left -25.px
-
-				rule '.boss:last-child' do
-					padding bottom: 10.px
-				end
 			end
 
 			rule '&.open .bosses' do
