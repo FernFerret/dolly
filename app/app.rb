@@ -176,14 +176,14 @@ class Application < Lissio::Application
 
 		if Overwolf.available?
 			Overwolf::Window.current.then {|w|
-				w.resize(width, 450)
+				w.resize(width, w.height)
 			}
 		else
 			element.at_css('#container').style \
 				margin: 20.px,
 			  border: '2px solid black',
 			  width: width.px,
-			  height: 450.px
+			  height: 600.px
 		end
 	end
 
