@@ -195,7 +195,7 @@ class Application < Lissio::Application
 		resize!
 	end
 
-	on 'mouse:down' do
+	on 'mouse:down', '#container > .icon' do
 		next unless Overwolf.available?
 
 		Overwolf::Window.current.then {|w|
