@@ -203,7 +203,7 @@ class Application < Lissio::Application
 		}
 	end
 
-	on :click, '#container > .icon' do
+	on :dblclick, '#container > .icon' do
 		if Overwolf.available?
 			Overwolf::Window.current.then {|w|
 				w.minimize
