@@ -58,9 +58,9 @@ module Component
 			on a daily basis that isn't somehow provided by the standard GW2 UI, this
 			includes dungeons, fractals, crafting and world bosses.
 
-			To minimize the window click the icon on the top left, keep in mind this
-			icon will change depending on the section you're viewing but its
-			functionality won't change.
+			To minimize the window double click the icon on the top left, keep in
+			mind this icon will change depending on the section you're viewing but
+			its functionality won't change.
 
 			To move the window around click and drag the icon mentioned above.
 
