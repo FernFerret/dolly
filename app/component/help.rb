@@ -20,34 +20,6 @@ module Component
 			'icon.png'
 		end
 
-		def children(parent)
-			array = []
-			el    = parent.next_element
-
-			until el.nil? || el =~ parent.name || el =~ 'h1'
-				array << el
-
-				el = el.next_element
-			end
-
-			Browser::DOM::NodeSet[array]
-		end
-
-		on :click, 'h1' do |e|
-			if e.on.at_css('.arrow').class_names.include? :open
-				children(e.on).style(display: :none)
-				e.on.at_css('.arrow').remove_class :open
-			else
-				element.css('h1').each {|el|
-					el.at_css('.arrow').remove_class :open
-					children(el).style(display: :none)
-				}
-
-				children(e.on).style(display: :block)
-				e.on.at_css('.arrow').add_class :open
-			end
-		end
-
 		content <<-MD.gsub(/^\t{3}/m, '')
 			Daily Dolly is developed by **meh.6784** and the source is available on
 			[GitHub](https://github.com/meh/dolly).
@@ -121,6 +93,34 @@ module Component
 			- `In-Game Only` allows you to show the interface either only while in
 			  game or even on your desktop.
 		MD
+
+		def children(parent)
+			array = []
+			el    = parent.next_element
+
+			until el.nil? || el =~ parent.name || el =~ 'h1'
+				array << el
+
+				el = el.next_element
+			end
+
+			Browser::DOM::NodeSet[array]
+		end
+
+		on :click, 'h1' do |e|
+			if e.on.at_css('.arrow').class_names.include? :open
+				children(e.on).style(display: :none)
+				e.on.at_css('.arrow').remove_class :open
+			else
+				element.css('h1').each {|el|
+					el.at_css('.arrow').remove_class :open
+					children(el).style(display: :none)
+				}
+
+				children(e.on).style(display: :block)
+				e.on.at_css('.arrow').add_class :open
+			end
+		end
 
 		on :render do
 			element.css('a').each {|el|
@@ -198,7 +198,7 @@ module Component
 			rule 'h1' do
 				margin 5.px, 0
 
-				rule '&#side' do
+				rule '&#general' do
 					margin top: 10.px
 				end
 
