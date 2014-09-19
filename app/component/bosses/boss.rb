@@ -81,14 +81,15 @@ module Component
 
 				if minutes < 0
 					hours   -= 1
-					minutes  = 59 + minutes
+					minutes  = 60 + minutes
 				end
 
-				unless now.minutes == 59
+				seconds = now.seconds
+				
+				if seconds > 0
 					minutes -= 1
+					seconds  = 60 - seconds
 				end
-
-				seconds = 59 - now.seconds
 
 				el_hours.inner_text   = '%02d' % hours
 				el_minutes.inner_text = '%02d' % minutes
