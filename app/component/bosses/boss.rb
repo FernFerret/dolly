@@ -46,6 +46,8 @@ module Component
 			el_minutes = element.at_css('.timer .minutes')
 			el_seconds = element.at_css('.timer .seconds')
 
+			el.remove_class :blink, :wait, :warmup, :active
+
 			if now.hours == curr.hours && now.minutes >= curr.minutes
 				minutes = now.minutes - curr.minutes
 				seconds = now.seconds
@@ -76,12 +78,17 @@ module Component
 				end
 
 				minutes = curr.minutes - now.minutes
-				seconds = 59 - now.seconds
 
 				if minutes < 0
 					hours   -= 1
 					minutes  = 59 + minutes
 				end
+
+				unless now.minutes == 59
+					minutes -= 1
+				end
+
+				seconds = 59 - now.seconds
 
 				el_hours.inner_text   = '%02d' % hours
 				el_minutes.inner_text = '%02d' % minutes
@@ -145,24 +152,7 @@ module Component
 				end
 
 				if minutes == 15
-					now, curr = time
-
-					el.remove_class :warmup, :active, :blink
-					el.add_class :wait
-
-					if curr.hours < now.hours
-						hours = 24 - now.hours + curr.hours
-					else
-						hours = curr.hours - now.hours
-					end
-
-					minutes = curr.minutes - now.minutes
-					seconds = 59 - now.seconds
-
-					if minutes < 0
-						hours   -= 1
-						minutes  = 59 + minutes
-					end
+					return timer(*time)
 				end
 			end
 
