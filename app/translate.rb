@@ -17,7 +17,7 @@ module Translate
 			instance_exec(&block)
 		end
 
-		%w[de es fr ko zh].each {|lang|
+		%w[en de es fr ko zh].each {|lang|
 			define_method lang do |value = nil|
 				if value
 					@to[lang] = value
@@ -26,10 +26,6 @@ module Translate
 				end
 			end
 		}
-
-		def en
-			@string
-		end
 
 		def [](lang)
 			@to[lang] || @string
@@ -42,7 +38,7 @@ module Translate
 		end
 
 		def translate(string, to = Application.language || :en)
-			return string if to == :en || all[string].nil?
+			return string if all[string].nil?
 
 			all[string][to] || string
 		end
@@ -68,12 +64,14 @@ module Translate
 	end
 
 	define 'Crafting' do
-		es 'Artesanía'
+		es 'Crafteo'
 		fr 'Artisanat'
 		de 'Handwerk'
 	end
 
-	define 'World Boss' do
+	define 'World Bosses' do
+		es 'Jefes de Mundo'
+		de 'Weltbosse'
 	end
 
 	define 'Options' do
@@ -322,6 +320,194 @@ module Translate
 		es 'Reina Karka'
 		fr 'Reine Karka'
 		de 'Karka Königin'
+	end
+
+	define 'Eye Of Zhaitan' do
+		es 'Ojo de Zhaitan'
+		fr 'Oeil de Zhaitan'
+	end
+
+	define 'Gates Of Arah' do
+		es 'Puertas De Arah'
+		fr "Portes D'Arah"
+	end
+
+	define 'Rhendak The Crazed' do
+		es 'Rhendak El Loco'
+		fr 'Rhendak Le Fou'
+	end
+
+	define 'Foulbear Chieftain' do
+		es 'Corral Osoinmundo'
+		fr "Kraal D'Oursefol"
+	end
+
+	define 'Dredge Commissar' do
+		es 'Comisario Draga'
+		fr 'Commissaire Draguerre'
+	end
+
+	define 'Fire Shaman' do
+		es 'Chamán De Fuego'
+		fr 'Chamane De Feu'
+	end
+
+	# Help & About
+	define :help do
+		en <<-MD.gsub(/^\t{3}/m, '')
+			Daily Dolly is developed by **meh.6784** and the source is available on
+			[GitHub](https://github.com/meh/dolly).
+
+			General
+			=======
+			Daily Dolly is designed to help you keep track of everything time-gated
+			on a daily basis that isn't somehow provided by the standard GW2 UI, this
+			includes dungeons, fractals, crafting and world bosses.
+
+			To minimize the window double click the icon on the top left, keep in
+			mind this icon will change depending on the section you're viewing but
+			its functionality won't change.
+
+			To move the window around click and drag the icon mentioned above.
+
+			To access a section, click on the title next to the icon and select the
+			section from the dropdown menu.
+
+			To access the options panel click on the gear icon on the top
+			right.
+
+			Dungeons
+			========
+			Keep track of the dungeon paths you've done, including earnings in gold,
+			silver and tokens.
+
+			Clicking on a path will mark it as done, and update the earnings at the
+			bottom.
+
+			Fractals
+			========
+			Keep track of the fractal levels you've done, including earnings in gold,
+			silver, fractal relics and pristine fractal relics.
+			
+			Clicking on a level will mark it as done, and update the earnings at the
+			bottom.
+
+			Crafting
+			========
+			Keep track of the various time-gated craftables, this includes ascended
+			mats, items for Mawdrey and miscellanea.
+
+			Clicking on a crafting item will mark it as done.
+
+			World Bosses
+			============
+			Keep track of the various world bosses in the world, including the
+			off-schedule ones.
+
+			Clicking on the waypoint icon will copy the closest waypoint to the
+			clipboard.
+
+			Clicking on the world boss name will mark it as done.
+
+			A green timer represents hours and minutes remaining before the
+			activation window begins, when one minute is left it will start blinking.
+
+			During the event window the timer represents minutes and seconds passed
+			since its beginning, it will be orange during warmup, red during its
+			duration, and it will start blinking when it ended.
+
+			*The warmup and duration times are approximations.*
+
+			Options
+			=======
+			There are various options to adapt Daily Dolly to your liking.
+
+			- `Interface Size` should be the same you configured Guild Wars 2 with.
+			- `In-Game Only` allows you to show the interface either only while in
+			  game or even on your desktop.
+			- `Language` allows you to change the language from a list of GW2
+			  supported languages.
+		MD
+
+		es <<-MD.gsub(/^\t{3}/m, '')
+			Daily Dolly ha sido desarrollado por **meh.6784** y la fuente está
+			disponible en [GitHub](https://github.com/meh/dolly).
+
+			General
+			=======
+			Daily Dolly ha sido diseñado para ayudarte a mantener un registro diario,
+			que de alguna manera no está proporcionado por el GW2 UI estándar, esto
+			incluye mazmorras, fractales, crafteo y jefes de mundo.
+
+			Para minimizar la ventana, haz doble clic en el icono arriba a la
+			izquierda. Ten en cuenta que el icono cambiará dependiendo de la sección
+			que estés visualizando, pero el funcionamiento seguirá siendo el mismo.
+
+			Para mover la ventana alrededor, haz clic y arrastra el icono mencionado
+			anteriormente.
+
+			Para acceder a una sección, haz clic en el titulo junto al icono y
+			selecciona un apartado del menú desplegable.
+
+			Para acceder al panel de opciones, haz clic en el icono del
+			engranaje, arriba a la derecha.
+
+			Mazmorras
+			=========
+			Para mantener un seguimiento de las rutas de mazmorras que has concluido,
+			incluyendo los ingresos de oro, plata y chapas.
+
+			Clicando en una ruta, la marcará como finalizada, y actualizará las
+			ganancias en la parte inferior.
+
+			Fractales
+			=========
+			Para llevar un seguimiento de los niveles de fractales que has realizado,
+			incluyendo las ganancias de oro, plata, reliquias fractales y reliquias
+			fractales prístinas.
+
+			Clicando en un nivel, la marcará como finalizado, y actualizará las
+			ganancias en la parte inferior.
+
+			Crafteo
+			=======
+			Para mantener un registro diario de varios crafteables, incluyendo
+			materiales ascendidos, artículos para Mawdrey y otros.
+
+			Haciendo clic en un crafteable lo marcará como adquirido.
+
+			Jefes de Mundo
+			==============
+			Para mantener el seguimiento de varios jefes de mundo, incluido los que
+			están fuera de horario.
+
+			Clicando en el icono del punto de ruta, éste se copiará en el
+			portapapeles.
+
+			Clicando en el nombre del jefe de mundo, se marcará como finalizado.
+
+			El temporizador verde representa las horas y minutos restantes antes que
+			empiece la activación del evento. Cuando falte un minuto, empezará a
+			parpadear.
+
+			Durante el evento, el temporizador representará los minutos y segundos
+			pasados desde su comienzo. Será de color naranja durante los pre eventos,
+			rojos durante el evento principal, y empezará a parpadear cuando esté
+			terminando.
+
+			*Los pre eventos y la duración son aproximados.*
+
+			Opciones
+			========
+			Hay varias opciones para adaptar Daily Dolly a tus preferencias.
+
+			- `Tamaño de la interfaz` debería ser el mismo que tu propia
+			  configuración de Guild Wars 2.
+			- `Solo en el juego` te permite mostrar la interfaz solo dentro del juego
+			  o también en el escritorio.
+			- `Idiomas` te permite cambiar los idiomas, pudiendo elegir los que están
+			  disponibles en GW2.
+		MD
 	end
 end
 

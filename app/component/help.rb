@@ -11,7 +11,7 @@
 require 'lissio/component/markdown'
 
 module Component
-	class Help < Lissio::Component::Markdown
+	class Help < Lissio::Component
 		def self.title
 			'Help & About'
 		end
@@ -19,81 +19,6 @@ module Component
 		def self.icon
 			'icon.png'
 		end
-
-		content <<-MD.gsub(/^\t{3}/m, '')
-			Daily Dolly is developed by **meh.6784** and the source is available on
-			[GitHub](https://github.com/meh/dolly).
-
-			General
-			=======
-			Daily Dolly is designed to help you keep track of everything time-gated
-			on a daily basis that isn't somehow provided by the standard GW2 UI, this
-			includes dungeons, fractals, crafting and world bosses.
-
-			To minimize the window double click the icon on the top left, keep in
-			mind this icon will change depending on the section you're viewing but
-			its functionality won't change.
-
-			To move the window around click and drag the icon mentioned above.
-
-			To access a section, click on the title next to the icon and select the
-			section from the dropdown menu.
-
-			To access the options panel click on the gear icon on the top
-			right.
-
-			Dungeons
-			========
-			Keep track of the dungeon paths you've done, including earnings in gold,
-			silver and tokens.
-
-			Clicking on a path will mark it as done, and update the earnings at the
-			bottom.
-
-			Fractals
-			========
-			Keep track of the fractal levels you've done, including earnings in gold,
-			silver, fractal relics and pristine fractal relics.
-			
-			Clicking on a level will mark it as done, and update the earnings at the
-			bottom.
-
-			Crafting
-			========
-			Keep track of the various time-gated craftables, this includes ascended
-			mats, items for Mawdrey and miscellanea.
-
-			Clicking on a crafting item will mark it as done.
-
-			World Bosses
-			============
-			Keep track of the various world bosses in the world, including the
-			off-schedule ones.
-
-			Clicking on the waypoint icon will copy the closest waypoint to the
-			clipboard.
-
-			Clicking on the world boss name will mark it as done.
-
-			A green timer represents hours and minutes remaining before the
-			activation window begins, when one minute is left it will start blinking.
-
-			During the event window the timer represents minutes and seconds passed
-			since its beginning, it will be orange during warmup, red during its
-			duration, and it will start blinking when it ended.
-
-			*The warmup and duration times are approximations.*
-
-			Options
-			=======
-			There are various options to adapt Daily Dolly to your liking.
-
-			- `Interface Size` should be the same you configured Guild Wars 2 with.
-			- `In-Game Only` allows you to show the interface either only while in
-			  game or even on your desktop.
-			- `Language` allows you to change the language from a list of GW2
-			  supported languages.
-		MD
 
 		def children(parent)
 			array = []
@@ -136,6 +61,10 @@ module Component
 					end
 				end
 			}
+		end
+
+		render do
+			element.inner_html = Lissio::Component::Markdown.render(T.t(:help))
 		end
 
 		css do

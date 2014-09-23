@@ -319,7 +319,7 @@ class Boss < Browser::Storage
 		waypoint '[&BPgCAAA=]'
 	end
 
-	class RisenHighWizard < self
+	class GatesOfArah < self
 		type     :off
 		waypoint '[&BB8DAAA=]'
 	end
