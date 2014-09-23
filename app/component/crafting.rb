@@ -54,14 +54,23 @@ module Component
 					end
 				end
 
-				tag class: :material
+				tag name: :table, class: :material
 	
 				html do |_|
-					_.img.src(@icon)
-					_.span.name @name
+					_.tr do
+						_.td do
+							_.img.src(@icon)
+						end
+
+						_.td.name T.t(@name)
+					end
 				end
 	
 				css do
+					rule 'td' do
+						vertical align: :top
+					end
+
 					rule 'img' do
 						width 16.px
 						height 16.px
@@ -70,12 +79,13 @@ module Component
 						border radius: 5.px
 						box shadow: [0.px, 0.px, 5.px, 0.px, rgba(50, 50, 50, 0.75)]
 
-						vertical align: :middle
 						margin right: 5.px
+
+						position :relative
+						top 2.px
 					end
 
 					rule '.name' do
-						vertical align: :middle
 						line height: 24.px
 					end
 
@@ -121,7 +131,7 @@ module Component
 			end
 
 			html do |_|
-				_.div.title @title
+				_.div.title T.t(@title)
 				_.div.arrow do
 					_.img.minus
 					_.img.plus
@@ -190,7 +200,7 @@ module Component
 
 		html do
 			self << Group.new('Ascended Materials',
-				'Lump of Mithrilium'           => 'img/craft/lump-of-mithrillium.png',
+				'Lump of Mithrillium'          => 'img/craft/lump-of-mithrillium.png',
 				'Spool of Silk Weaving Thread' => 'img/craft/spool-of-silk-weaving-thread.png',
 				'Spool of Thick Elonian Cord'  => 'img/craft/spool-of-thick-elonian-cord.png',
 				'Glob of Elder Spirit Residue' => 'img/craft/glob-of-elder-spirit-residue.png')
@@ -202,7 +212,7 @@ module Component
 				'Plate of Meaty Plant Food'   => 'img/craft/plate-of-meaty-plant-food.png',
 				'Plate of Piquant Plant Food' => 'img/craft/plate-of-piquant-plant-food.png')
 
-			self << Group.new('Others',
+			self << Group.new('Miscellaneous',
 				'Charged Quartz Crystal' => 'img/craft/charged-quartz-crystal.png')
 		end
 	end

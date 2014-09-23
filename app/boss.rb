@@ -146,7 +146,7 @@ class Boss < Browser::Storage
 		at '23:15'
 	end
 
-	class FrozenMaw < self
+	class SvanirShaman < self
 		type     :low
 		waypoint '[&BH4BAAA=]'
 
@@ -167,7 +167,7 @@ class Boss < Browser::Storage
 		at '22:15'
 	end
 
-	class Shatterer < self
+	class TheShatterer < self
 		type     :standard
 		waypoint '[&BE4DAAA=]'
 
@@ -184,7 +184,7 @@ class Boss < Browser::Storage
 		at '22:00'
 	end
 
-	class InquestGolemMarkII < self
+	class GolemMarkII < self
 		type     :standard
 		waypoint '[&BNQCAAA=]'
 
@@ -218,7 +218,7 @@ class Boss < Browser::Storage
 		at '23:30'
 	end
 
-	class TaidhaConvington < self
+	class AdmiralTaidhaCovington < self
 		type     :standard
 		waypoint '[&BNQCAAA=]'
 
@@ -269,7 +269,7 @@ class Boss < Browser::Storage
 		at '21:30'
 	end
 
-	class EvolvedJungleWurm < self
+	class TripleTrouble < self
 		type     :hardcore
 		waypoint '[&BKoBAAA=]'
 

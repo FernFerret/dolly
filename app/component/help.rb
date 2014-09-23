@@ -39,7 +39,7 @@ module Component
 			To access a section, click on the title next to the icon and select the
 			section from the dropdown menu.
 
-			To access the configuration panel click on the gear icon on the top
+			To access the options panel click on the gear icon on the top
 			right.
 
 			Dungeons
@@ -84,14 +84,15 @@ module Component
 
 			*The warmup and duration times are approximations.*
 
-			Configuration
-			=============
-			There are various configuration options to adapt Daily Dolly to your
-			liking.
+			Options
+			=======
+			There are various options to adapt Daily Dolly to your liking.
 
 			- `Interface Size` should be the same you configured Guild Wars 2 with.
 			- `In-Game Only` allows you to show the interface either only while in
 			  game or even on your desktop.
+			- `Language` allows you to change the language from a list of GW2
+			  supported languages.
 		MD
 
 		def children(parent)

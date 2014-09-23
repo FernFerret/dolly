@@ -18,6 +18,8 @@ require 'browser/delay'
 require 'browser/interval'
 require 'browser/console'
 
+require 'translate'
+
 require 'dungeon'
 require 'fractal'
 require 'materials'
@@ -26,7 +28,7 @@ require 'clipboard'
 
 require 'component/dashboard'
 require 'component/help'
-require 'component/configuration'
+require 'component/options'
 require 'component/clipboard'
 
 require 'component/dungeons'
@@ -50,8 +52,8 @@ class Application < Lissio::Application
 			load Component::Help.new
 		end
 
-		route '/config' do
-			load Component::Configuration.new
+		route '/options' do
+			load Component::Options.new
 		end
 
 		route '/dungeons' do
@@ -123,14 +125,14 @@ class Application < Lissio::Application
 		@current.trigger 'page:unload' if @current
 		@current = component
 
-		if Component::Configuration === component || Component::Help === component
+		if Component::Options === component || Component::Help === component
 			element.at_css('.menu').add_class :special
 		else
 			element.at_css('.menu').remove_class :special
 		end
 
 		element.at_css('#container > .icon img')[:src] = 'img/' + component.class.icon
-		element.at_css('#container > .header .title').inner_text = component.class.title
+		element.at_css('#container > .header .title').inner_text = T.t(component.class.title)
 		element.at_css('#container > .content').inner_dom = component.render
 
 		if el = element.at_css("#container > .header select option[value='#{@router.path}']")
@@ -164,6 +166,17 @@ class Application < Lissio::Application
 	end
 	expose :size=
 
+	def language=(value)
+		state[:language] = value
+		translate!
+	end
+	expose :language=
+
+	def language
+		state[:language] || :en
+	end
+	expose :language
+
 	def show?
 		state[:show]
 	end
@@ -190,9 +203,27 @@ class Application < Lissio::Application
 		end
 	end
 
+	def translate!
+		element.at_css('.header select option[value="/"]').inner_text \
+			= T.t(Component::Dashboard.title)
+
+		element.at_css('.header select option[value="/dungeons"]').inner_text \
+			= T.t(Component::Dungeons.title)
+
+		element.at_css('.header select option[value="/fractals"]').inner_text \
+			= T.t(Component::Fractals.title)
+
+		element.at_css('.header select option[value="/crafting"]').inner_text \
+			= T.t(Component::Crafting.title)
+
+		element.at_css('.header select option[value="/bosses"]').inner_text \
+			= T.t(Component::Bosses.title)
+	end
+
 	on :render do
 		element.add_class(size)
 		resize!
+		translate!
 	end
 
 	on 'mouse:down', '#container > .icon' do
@@ -212,7 +243,7 @@ class Application < Lissio::Application
 	end
 
 	on :click, '.gear' do
-		Application.navigate '/config'
+		Application.navigate '/options'
 	end
 
 	on :click, '.question' do

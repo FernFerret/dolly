@@ -70,7 +70,7 @@ module Component
 		end
 
 		html do |_|
-			_.div.type type
+			_.div.type T.t(type)
 			_.div.arrow do
 				_.img.minus
 				_.img.plus

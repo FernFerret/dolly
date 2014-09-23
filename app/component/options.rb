@@ -9,9 +9,9 @@
 #++
 
 module Component
-	class Configuration < Lissio::Component
+	class Options < Lissio::Component
 		def self.title
-			'Configuration'
+			'Options'
 		end
 
 		def self.icon
@@ -20,55 +20,74 @@ module Component
 
 		on 'page:unload' do
 			Application.size         = element.at_css('.size td:nth-child(2) select').value
+			Application.language     = element.at_css('.language td:nth-child(2) select').value
 			Application.state[:show] = element.at_css('.show span').inner_text == 'No'
 		end
 
-		on :change, '.size td:nth-child(2) select' do |e|
+		on :change, 'select' do |e|
 			update
 		end
 
 		on :click, '.show span' do |e|
-			if e.on.inner_text == 'Yes'
-				e.on.inner_text = 'No'
+			if e.on.inner_text == T.t('Yes')
+				e.on.inner_text = T.t('No')
 			else
-				e.on.inner_text = 'Yes'
+				e.on.inner_text = T.t('Yes')
 			end
 		end
 
 		on :render do
 			element.at_css(".size td:nth-child(2) select option[value='#{Application.size}']")[:selected] = :selected
-			element.at_css('.show span').inner_text = Application.show? ? 'No' : 'Yes'
+			element.at_css(".language td:nth-child(2) select option[value='#{Application.language}']")[:selected] = :selected
+			element.at_css('.show span').inner_text = Application.show? ? T.t('No') : T.t('Yes')
 
 			update
 		end
 
 		def update
 			element.at_css('.size td:nth-child(2) .value').inner_text =
-				element.at_css('.size td:nth-child(2) select').value.capitalize
+				element.at_css('.size td:nth-child(2) select').option.inner_text
+
+			element.at_css('.language td:nth-child(2) .value').inner_text =
+				element.at_css('.language td:nth-child(2) select').option.inner_text
 		end
 
-		tag class: :configuration
+		tag class: :options
 
 		html do
 			table do
 				tr.size do
-					td 'Interface Size :'
+					td T.t('Interface Size') + ' :'
 					td do
-						div.value 'Normal'
+						div.value T.t('Normal')
 
 						select do
-							option.value(:small)  >> 'Small'
-							option.value(:normal) >> 'Normal'
-							option.value(:large)  >> 'Large'
-							option.value(:larger) >> 'Larger'
+							option.value(:small)  >> T.t('Small')
+							option.value(:normal) >> T.t('Normal')
+							option.value(:large)  >> T.t('Large')
+							option.value(:larger) >> T.t('Larger')
 						end
 					end
 				end
 
 				tr.show do
-					td 'In-Game Only :'
+					td T.t('In-Game Only') + ' :'
 					td do
 						span
+					end
+				end
+
+				tr.language do
+					td T.t('Language') + ' :'
+					td do
+						div.value T.t('English')
+
+						select do
+							option.value(:en) >> 'English'
+							option.value(:es) >> 'Español'
+							option.value(:fr) >> 'Français'
+							option.value(:de) >> 'Deutsch'
+						end
 					end
 				end
 			end

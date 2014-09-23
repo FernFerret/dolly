@@ -202,45 +202,50 @@ module Component
 			end
 		end
 
-		tag class: :boss
+		tag name: :table, class: :boss
 
 		html do |_|
-			_.img.waypoint.data(waypoint: waypoint)
+			_.tr do
+				_.td.waypoint do
+					_.img.data(waypoint: waypoint)
+				end
 
-			_.span.timer do
-				_.span.hours
-				_.span.minutes
-				_.span.seconds
+				_.td.timer do
+					_.span.hours
+					_.span.minutes
+					_.span.seconds
+				end
+
+				_.td.name T.t(name)
 			end
-
-			_.span.name name
 		end
 
 		css do
 			margin bottom: 3.px
 
+			border spacing: 0,
+			       collapse: :collapse
+
 			rule '.waypoint' do
+				padding right: 25.px
+				vertical align: :top
 				position :relative
-				top -1.px
-				left 2.px
 
-				display 'inline-block'
-				vertical align: :middle
-				width 18.px
-				height 18.px
+				rule 'img' do
+					position :absolute
+					top -1.px
+					left 2.px
+					width 18.px
+					height 18.px
 
-				margin right: 8.px
-
-				content url('img/waypoint.png')
+					content url('img/waypoint.png')
+				end
 
 				rule '&:hover' do
-					content url('img/waypoint.active.png')
+					rule 'img' do
+						content url('img/waypoint.active.png')
+					end
 				end
-			end
-
-			rule '.name' do
-				vertical align: :middle
-				line height: 16.px
 			end
 
 			rule '&.off .timer' do
@@ -248,10 +253,10 @@ module Component
 			end
 
 			rule '.timer' do
-				vertical align: :middle
+				vertical align: :top
 				line height: 16.px
 
-				margin right: 8.px
+				padding right: 6.px
 
 				rule '.hours::after' do
 					content '":"'
@@ -287,6 +292,11 @@ module Component
 						display :none
 					end
 				end
+			end
+
+			rule '.name' do
+				vertical align: :top
+				line height: 16.px
 			end
 
 			rule '&.done' do
