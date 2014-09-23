@@ -78,19 +78,18 @@ module Component
 				end
 
 				minutes = curr.minutes - now.minutes
-
-				if minutes < 0
-					hours   -= 1
-					minutes  = 60 + minutes
-				end
-
 				seconds = now.seconds
-				
+
 				if seconds > 0
 					minutes -= 1
 					seconds  = 60 - seconds
 				end
 
+				if minutes < 0
+					hours   -= 1
+					minutes  = 60 + minutes
+				end
+				
 				el_hours.inner_text   = '%02d' % hours
 				el_minutes.inner_text = '%02d' % minutes
 				el_seconds.inner_text = '%02d' % seconds
@@ -152,6 +151,7 @@ module Component
 					seconds += 1
 				end
 
+				# most events last 15 minutes
 				if minutes == 15
 					return timer(*time)
 				end
