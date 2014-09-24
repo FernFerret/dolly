@@ -94,6 +94,8 @@ module Component
 		end
 
 		css do
+			margin bottom: 5.px
+
 			rule 'table' do
 				rule 'td' do
 					position :relative
