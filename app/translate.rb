@@ -388,7 +388,7 @@ module Translate
 			========
 			Keep track of the fractal levels you've done, including earnings in gold,
 			silver, fractal relics and pristine fractal relics.
-			
+
 			Clicking on a level will mark it as done, and update the earnings at the
 			bottom.
 
@@ -507,6 +507,87 @@ module Translate
 			  o también en el escritorio.
 			- `Idiomas` te permite cambiar los idiomas, pudiendo elegir los que están
 			  disponibles en GW2.
+		MD
+
+		de <<-MD.gsub(/^\t{3}/m, '')
+			Daily Dolly wird von **meh.6784** entwickelt und der Quelltext ist
+			verfügbar auf [GitHub](https://github.com/meh/dolly).
+
+			Allgemein
+			=======
+			Daily Dolly hilft dir, den Überblick über alle einmal pro Tag verfügbaren
+			Dinge zu behalten, die nicht bereits vom standardmäßigen GW2
+			Userinterface bereitgestellt werden. Das beinhaltet Verliese, Fraktale,
+			Handwerk und Weltbosse.
+
+			Um das Fenster zu minimieren, klicke auf das Symbol oben links. Denk
+			daran, dass sich dieses Symbol abhängig vom betrachteten Untermenü
+			verändert, seine Funktion ändert sich jedoch nicht.
+
+			Um das Fenster zu bewegen, klicke und ziehe das oben beschriebene Symbol.
+
+			Um ein Untermenü aufzurufen, klicke auf den Titel neben dem Symbol und
+			wähle das gewünschte Untermenü aus der Dropdown-Liste aus.
+
+			Um zu den Optionen zu gelangen, klicke auf das Zahnrad oben rechts.
+
+			Verliese
+			========
+			Behalte den Überblick über die Wege, die du in einem Verlies beendet
+			hast, inklusive Gold-, Silber- und Tokenverdienste.
+
+			Klicke auf einen Weg, um ihn als beendet zu markieren und die Verdienste
+			unten zu aktualisieren.
+
+			Fraktale
+			========
+			Behalte den Überblick über die Fraktallevel, die du absolviert hast,
+			inklusive deiner Verdienste in Gold, Silber, Fraktal-Relikten und
+			Makellosen Fraktal-Relikten. 
+
+			Klicke auf ein Level um es als beendet zu markieren und die Verdienste
+			unten zu aktualisieren.
+
+			Handwerk
+			========
+			Behalte den Überblick über die verschiedenen einmal pro Tag herstellbaren
+			Gegenstände. Das beinhaltet aufgestiegene Materialien, Gegenstände für
+			Mawdrey und sonstiges.
+
+			Klicke auf einen Handwerksgegenstand, um ihn als erledigt zu markieren.
+
+			Weltbosse
+			============
+			Behalte den Überblick über die verschiedenen Weltbosse in der Welt,
+			inklusive der nicht auf dem Zeitplan vermerkten.
+
+			Klicke auf das Wegpunktsymbol um den nächstgelegenen Wegpunkt in die
+			Zwischenablage zu kopieren.
+
+			Klicke auf den Namen eines Weltbosses, um ihn als erledigt zu markieren.
+
+			Ein grüner Zähler zeigt die verbleibenden Stunden und Minuten bevor der
+			Aktivierungszeitraum beginnt. Wenn nur noch eine Minute übrig ist, wird
+			er anfangen zu blinken.
+
+			Während das Eventzeitraums zeigt der Zähler die seit Beginn des Zeitraums
+			vergangenen Minuten und Sekunden. Der Zähler ist während der Aufwärmphase
+			orange, rot während das Event läuft und beginnt nach seiner Beendigung zu
+			blinken.
+
+			*Die Aufwärm- und Laufzeiten sind Schätzungen.*
+
+			Optionen
+			=============
+			Es gibt verschiedene Optionen um Daily Dolly nach deinem Geschmack
+			anzupassen.
+
+			- `Interface Size` sollte die gleiche wie in deinen Guild Wars 2
+			  Einstellungen sein.
+			- `In-Game Only` erlaubt dir, die Benutzeroberfläche entweder nur im
+			  Spiel, oder auch auf deinem Desktop anzuzeigen.
+			- `Language` erlaubt dir, eine Sprache aus einer Liste von GW2
+			  unterstützten Sprachen auszuwählen.
 		MD
 	end
 end
