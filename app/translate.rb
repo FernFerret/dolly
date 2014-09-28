@@ -59,13 +59,13 @@ module Translate
 
 	define 'Fractals' do
 		es 'Fractales'
-		fr 'Fractales'
+		fr 'Fractals'
 		de 'Fraktal'
 	end
 
 	define 'Crafting' do
 		es 'Crafteo'
-		fr 'Artisanat'
+		fr 'Metiers'
 		de 'Handwerk'
 	end
 
@@ -509,12 +509,92 @@ module Translate
 			  disponibles en GW2.
 		MD
 
+		fr <<-MD.gsub(/^\t{3}/m, '')
+			Daily Dolly est développé par **meh.6784** et la source est disponible
+			sur [GitHub](https://github.com/meh/dolly).
+
+			General
+			=======
+			Daily Dolly a été conçu pour vous aider à suivre un registre quotidienne,
+			qui n’est pas fournis par l'interface utilisateur standard de GW2,
+			ceux-ci inclus les donjons, les fractals, les métiers et les bosses de
+			monde.
+
+			Pour réduire la fenêtre, double cliquer sur l'icône en haut à gauche,
+			rappelez-vous que cette icone changera en fonction de la section que vous
+			regardez mais sa fonctionnalité ne changera pas.
+
+			Pour bouger la fenêtre autour, cliquez et glissez l'icône mentionné
+			ci-dessus.
+
+			Pour accéder à une section, cliquez sur le titre à côté de l’icône et
+			sélectionnez la section à partir du menu déroulant.
+
+			Pour accéder au panneau de configuration, cliquez sur l'icône
+			d’équipement en haut à droite.
+
+			Donjons
+			=======
+			Suivre les chemins de donjons que vous avez déjà faits, incluant les
+			gains en or, argent et jetons.
+
+			Clicker sur un chemin marquera qu'il a été fait, et mettra à jour les
+			gains en bas.
+
+			Fractals
+			========
+			Suivre les levels de fractal que vous avez faits, incluant les gains en
+			or, argent, reliques de fractal and les reliques de fractal immaculées.
+
+			Clicker sur un level le marquera comme fait, et mettra à jour les gains
+			en bas.
+
+			Metiers
+			=======
+			Suivre un registre quotidien des fabricables, ceux-ci inclus les
+			matériaux élevées, objets pour Mawdrey et recueil.
+
+			Clicker sur un objet à fabriquer le marquera comme fait.
+
+			World Bosses
+			============
+			Suivre les divers bosses dans le monde, incluant les "non programmés".
+
+			Clicker sur un icone de portail copiera le portail le plus près sur le
+			presse-papier.
+
+			Clicker sur le nom d’un boss du monde le marquera comme fait.
+
+			Un timer vert représente les heures et les minutes restantes avant que la
+			fenêtre d’activation commence, lorsqu’ il ne reste plus qu’une minute, il
+			commencera à clignoter.
+
+			Durant la fenêtre d’évènement le timer représente les minutes et les
+			secondes passées depuis qu'il a commencé, il sera orange durant les
+			pré-événements, rouge pendant toute la durée, et il commencera à
+			clignoter vers la fin.
+
+			*Les pré-événements et le temps de durée sont approximatifs.*
+
+			Options
+			=======
+			Il y a une variété d’option de configuration pour adapter Daily Dolly à
+			votre gout.
+
+			- `Taille de l'Interface` doit être le même que vous avez configure avec
+			  Guild Wars 2.
+			- `Dans le Jeu Seulment` vous permet de montrer chaque interface
+			  seulement pendant le jeu ou même sur votre bureau.
+			- `Langue` vous permet de changer la langue à partir de la liste des
+			  langages supporte par GW2.
+		MD
+
 		de <<-MD.gsub(/^\t{3}/m, '')
 			Daily Dolly wird von **meh.6784** entwickelt und der Quelltext ist
 			verfügbar auf [GitHub](https://github.com/meh/dolly).
 
 			Allgemein
-			=======
+			=========
 			Daily Dolly hilft dir, den Überblick über alle einmal pro Tag verfügbaren
 			Dinge zu behalten, die nicht bereits vom standardmäßigen GW2
 			Userinterface bereitgestellt werden. Das beinhaltet Verliese, Fraktale,
