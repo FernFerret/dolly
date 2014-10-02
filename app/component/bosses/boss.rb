@@ -206,8 +206,8 @@ module Component
 
 		html do |_|
 			_.tr do
-				_.td.waypoint do
-					_.img.data(waypoint: waypoint)
+				_.td.waypoint.data(waypoint: waypoint) do
+					_.img
 				end
 
 				_.td.timer do
