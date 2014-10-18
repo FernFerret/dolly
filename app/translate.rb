@@ -205,7 +205,7 @@ module Translate
 	define 'Miscellaneous' do
 		es 'Miscelánea'
 		fr 'Divers'
-		de 'Verschieden'
+		de 'Verschiedenes'
 	end
 
 	define 'Charged Quartz Crystal' do
@@ -266,7 +266,7 @@ module Translate
 	define 'Svanir Shaman' do
 		es 'Jefe Chamán Svanir'
 		fr 'Chef Chamane De Svanir'
-		de 'Schamanenoberhaupt Der Svanir'
+		de 'Schamanenoberhaupt der Svanir'
 	end
 
 	define 'The Shatterer' do
@@ -308,12 +308,13 @@ module Translate
 	define 'Triple Trouble' do
 		es 'Problema x3'
 		fr 'Triple Terreur'
+		de 'Dreifacher Ärger'
 	end
 
 	define 'Tequatl The Sunless' do
 		es 'Tequatl El Sombrío'
 		fr 'Tequatl Le Sans-Soleil'
-		de 'Drelfacher Ärger'
+		de 'Tequatl der Sonnenlose'
 	end
 
 	define 'Karka Queen' do
@@ -325,31 +326,37 @@ module Translate
 	define 'Eye Of Zhaitan' do
 		es 'Ojo de Zhaitan'
 		fr 'Oeil de Zhaitan'
+		de 'Auge des Zhaitan'
 	end
 
 	define 'Gates Of Arah' do
 		es 'Puertas De Arah'
 		fr "Portes D'Arah"
+		de 'Tore von Arah'
 	end
 
 	define 'Rhendak The Crazed' do
 		es 'Rhendak El Loco'
 		fr 'Rhendak Le Fou'
+		de 'Rhendak der Verrückte'
 	end
 
 	define 'Foulbear Chieftain' do
 		es 'Corral Osoinmundo'
 		fr "Kraal D'Oursefol"
+		de 'Faulbär-Häuptling'
 	end
 
 	define 'Dredge Commissar' do
 		es 'Comisario Draga'
 		fr 'Commissaire Draguerre'
+		de 'Schaufler-Kommissar'
 	end
 
 	define 'Fire Shaman' do
 		es 'Chamán De Fuego'
 		fr 'Chamane De Feu'
+		de 'Feuer Schamane'
 	end
 
 	# Help & About
